@@ -1,7 +1,8 @@
-RESTFUL API
+RESTFUL SERVER / API
 ==============
 
 1. What is a RESTful API?
+========================
 REresentational State Transfter
 Transfer data around
 Client -> Server relationship - MVC Paradigm 
@@ -21,4 +22,44 @@ HTTP VERBS:  GET|POST|DELETE      GET|POST|PATCH        GET
 
 AJAX allows us to get information back without refreshing a page
 
+Data exchanged in json data, sometimes URLEncoded, FormData
 
+RESTful Constraints
+1. Client-Server Architecture
+-> Separation of concerns: RESTful API should not care about UI
+
+2. Stateless 
+-> No client context (e.g. session) is stored on server
+
+3. Cacheability
+->Responses must define themselves as cacheable or non-cacheable
+
+4. Layered System
+-> Intermediate servers maybe used without the Client knowing it (in between server, behind the scenes)
+
+5. Uniform Interface
+-> Resources are indentified in REquests, transferred data is decoupled from db schema. Can deviate from 
+schema.  Self-descriptive messages links to further resources.
+
+6. Code on Demnad (Optional)
+-> Executable code could be transferred. Gives client some executable code.
+
+2. Planning and First Steps
+=====================
+
+/products   /products/{id}
+GET | POST  GET | PATCH | DELETE
+
+/orders       /orders/{id}
+GET | POST      GET | DELETE
+
+
+Express
+app.use() sets up middleware 
+app.use((req, res, next) => {
+  res.status(200).json({
+**SENDS STATUS CODE
+  json stringed data
+  })
+  
+});
