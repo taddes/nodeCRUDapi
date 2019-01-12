@@ -1,0 +1,24 @@
+RESTFUL API
+==============
+
+1. What is a RESTful API?
+REresentational State Transfter
+Transfer data around
+Client -> Server relationship - MVC Paradigm 
+
+Examples:
+Client (Mobile App)
+Access to third-party
+Send data, and get data so it can be used in our code
+Client (browser/SPA)
+
+STATELESS BACKENDS, don't care about individual client which connects to them.
+
+SEND A REQUEST, HANDLE A RESPONSE
+Server with url's supported by the server by endpoints -> send AJAX (async http request)
+ie.             /users              /posts          /products
+HTTP VERBS:  GET|POST|DELETE      GET|POST|PATCH        GET
+
+AJAX allows us to get information back without refreshing a page
+
+
