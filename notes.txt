@@ -63,3 +63,35 @@ app.use((req, res, next) => {
   })
   
 });
+
+5. Handle parsing request body and handling CORS 
+body-parser
+app.use(bodyParser.urlencoded({extended}))
+true -> handles extended bodies with rich data
+false -> handles simple, short bodies
+
+app.use(bodyParser.json) -> encodes to json data making it easily readable
+
+CORS ERRORS!
+No 'Access-COntrol-Allow-Origin' header is present on the requested resource. 
+
+Cross Origin Resource Sharing -> security feature
+Clent -> Server if both client and server coming from the same place. Trying to Access
+resources on your server that exist where client is.  Therefore, when trying to make requests 
+where server and client are in other locations is standard case.  Client and server have different
+origins.  
+
+Tells the client to allow access to server.  Send correct headers to mitigate CORS 
+
+app.use((res, req, next) => {
+  res.header('Access=Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    );
+    // Browser always sends an options request first when sending a POST or PUT REQ
+    // Unavoidable. Browser checks if you can 
+    if (req.method === 'OPTIONS') {
+      res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+      return res.status(200).json({})
+    }
+});
