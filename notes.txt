@@ -95,3 +95,11 @@ app.use((res, req, next) => {
       return res.status(200).json({})
     }
 });
+
+Why can POSTMAN access api without CORS issues?
+COrs are a browser security feature
+Postman just a testing tool
+Cors restrictions based on ensuring other web pages can't access your api
+
+
+6. MondoDB and Mongoose
