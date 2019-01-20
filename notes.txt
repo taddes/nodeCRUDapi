@@ -103,3 +103,22 @@ Cors restrictions based on ensuring other web pages can't access your api
 
 
 6. MondoDB and Mongoose
+Set up cluster on mongoDB Atlas
+Whitelabel IP addresses
+
+Ideal to define passwords in process.env variable somewhere, so you don't expose passwords
+New .json file (nodemon.json) and in a "env" : {} put in name of const "MONGO_DB_PW" with matching pwrd
+
+Configure a schema: 
+**REquire mongoose
+const mongoose = require('mongoose');
+
+** Define a schema object and assign it to a variable, declaring the DB entires and their data types
+const productSchema = mongoose.Schema({
+  _id: mongoose.Types.ObjectId,
+  name: String,
+  price: Number
+});
+
+** export the schema using mongoose.model('SCHEMA NAME', variable that maps to schema name)
+module.exports = mongoose.model('Product', productSchema);
