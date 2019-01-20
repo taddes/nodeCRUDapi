@@ -122,3 +122,5 @@ const productSchema = mongoose.Schema({
 
 ** export the schema using mongoose.model('SCHEMA NAME', variable that maps to schema name)
 module.exports = mongoose.model('Product', productSchema);
+
+.Proper validation - often if value is null, the post can sneak through
