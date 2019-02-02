@@ -151,3 +151,6 @@ Every plain text string has a clear, unique hashed version of it. Dictionary tab
 hash values from plain text, via algorithms. Salting adds random strings to plain password, before
 hashing the password. Then added strings added to hash, preventing decription by dictionary tables.
 Translations can be looked up in dictionary tables! 10 considered safe!
+
+409 - conflict code
+422 - unprocessable entity
