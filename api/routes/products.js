@@ -28,7 +28,7 @@ const Product = require('../models/product');
 // Router to register different routes via Express
 router.get('/', (req, res, next) => {
   Product.find()
-  .select( 'name price _id')
+  .select( 'name price _id productImage')
   .exec()
   .then(docs => {
       const response = {
@@ -37,6 +37,7 @@ router.get('/', (req, res, next) => {
           return {
             name: doc.name,
             price: doc.price,
+            productImage: doc.productImage,
             _id: doc._id,
             request: {
               type: 'GET',

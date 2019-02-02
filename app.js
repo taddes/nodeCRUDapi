@@ -14,6 +14,7 @@ mongoose.connect(`mongodb://taddes:${process.env.MONGO_ATLAS_PW}@node-store-shar
 mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 
