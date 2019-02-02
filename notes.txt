@@ -154,3 +154,8 @@ Translations can be looked up in dictionary tables! 10 considered safe!
 
 409 - conflict code
 422 - unprocessable entity
+
+12. User Login and JWT Token Signing
+
+
+13. Route Protection
