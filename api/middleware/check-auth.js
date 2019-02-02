@@ -1,12 +1,17 @@
 const jwt = require('jsonwebtoken')
 module.exports = (req, res, next) => {
   try {
-    const decoded = jwt.verify(req.body.token);
+    const token = req.headers.authorization.split(' ')[1];
+    console.log(token);
+    const decoded = jwt.verify(token, 'secret');
     req.userData = decoded
+    console.log({decoded})
+    console.log('KARK')
     next();
   } catch (error) {
     return res.status(401).json({
-      message: 'Auth failed'
+      message: 'Auth failed FUQ',
+      error: error
     })
   }
 
