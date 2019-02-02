@@ -124,3 +124,30 @@ const productSchema = mongoose.Schema({
 module.exports = mongoose.model('Product', productSchema);
 
 .Proper validation - often if value is null, the post can sneak through
+
+10. Multer
+
+11. How auth works with RESTful services
+Client Makes request (front end) -> sends Auth data - > request arrives at server -> stores pword if first 
+sign up/ checks or verifies data as to whether client has authorization to access data
+-> session (what returns on a normal servce) **RESTful services are STATELESS, therefore we don't uses
+sessions! Not all clients support sessions (say a mobile app, one accessing another seperate api)
+**RETURNS A TOKEN (object or piece of data) that lets us verify on the server regarding user.
+Token stored by client so that when future requests made, that token comes along with requests
+and allows efficient access.  Can always check if valid on the server and verify token data.
+
+What is a Token? A JSON Web-token
+JWT -JSON Data {} + signature (plus expiration of token, aut params)
+- returns to the client. 
+-The Signature (validity) can be verified on the server. Uses private/public
+key combination
+-Token is not encrypted, can have data extracted, but changing data does not let you access data
+in back end if signature and pword hashing correct.
+
+Bcrypt - password hasher so that password is not raw in api request
+
+Salting -> hashing a password, as it cannot be reversed (a one-way operation)
+Every plain text string has a clear, unique hashed version of it. Dictionary tables exist which 
+hash values from plain text, via algorithms. Salting adds random strings to plain password, before
+hashing the password. Then added strings added to hash, preventing decription by dictionary tables.
+Translations can be looked up in dictionary tables! 10 considered safe!
